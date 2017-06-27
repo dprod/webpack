@@ -1,15 +1,35 @@
-import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Router from 'vue-router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Hello from '@/components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Vue from 'vue'
+import Router from 'vue-router'
 
-Vue.use(Router){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Index from '@/components/Index'
+import Page from '@/components/Page'
+import Page404 from '@/components/Page404'
 
-export default new Router({
+Vue.use(Router)
+
+const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  ]{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      component: Index,
+    },
+    {
+      path: '/pages/:slug',
+      component: Page,
+    },
+    {
+      path: '*',
+      component: Page404,
+    }
+  ]
+})
+
+router.beforeEach((to, from, next) => {
+
+  // console.log(`beforeEach`)
+  next()
+
+})
+
+export default router
