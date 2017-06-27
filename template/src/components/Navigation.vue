@@ -11,7 +11,7 @@
 					:to="/pages/+page.slug"
 					:key="page.id"
 					v-for="page in $store.state.pages">
-						{{page.name}}
+						\{{page.name}}
 				</router-link>
 					
 			</nav>
