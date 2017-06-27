@@ -6,9 +6,9 @@
 
 		<div class="container view">
 
-			<h1 class="title">{{page.name || 'Page'}}</h1>
+			<h1 class="title">{{page.name}}</h1>
 			
-			<p>{{page.text || 'Lorem ipsum.'}}</p>
+			<p>{{page.text}}</p>
 
 		</div>
 
